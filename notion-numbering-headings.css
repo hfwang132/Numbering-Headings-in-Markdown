@@ -1,0 +1,36 @@
+body {
+    counter-set: headings1 headings2 headings3;
+}
+
+div.notranslate[placeholder="Heading 1"] {
+    counter-set: headings2;
+}
+
+div.notranslate[placeholder="Heading 2"] {
+    counter-set: headings3;
+}
+
+/*body {*/
+/*    counter-reset: headings1;*/
+/*}*/
+/*div.notranslate[placeholder="Heading 1"] {*/
+/*    counter-reset: headings2;*/
+/*}*/
+/*div.notranslate[placeholder="Heading 2"] {*/
+/*    counter-reset: headings3;*/
+/*}*/
+
+div.notranslate[placeholder="Heading 1"]::before {
+    counter-increment: headings1;
+    content: "Chapter " counter(headings1) " ";
+}
+div.notranslate[placeholder="Heading 2"]::before {
+    counter-increment: headings2;
+    content: "Section " counter(headings2) " ";
+}
+div.notranslate[placeholder="Heading 3"]::before {
+    counter-increment: headings3;
+    content: counter(headings2) "." counter(headings3) ".";
+}
+
+
